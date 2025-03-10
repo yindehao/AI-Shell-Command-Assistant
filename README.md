@@ -41,7 +41,7 @@ AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自�
 
    - 添加别名，方便调用
    ```zsh
-   echo "alias ask='python3 $(pwd)/scripts/ai.py'" >> ~/.zshrc
+   echo "alias ai='python3 $(pwd)/scripts/ai.py'" >> ~/.zshrc
    source ~/.zshrc
    ```
 
@@ -56,7 +56,7 @@ AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自�
 
    - 添加别名，方便调用
    ```cmd
-   doskey ask=python3 $(pwd)/scripts/ai.py $*
+   doskey ai=python3 $(pwd)/scripts/ai.py $*
    ```
 
 3.3 Linux
@@ -71,7 +71,7 @@ AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自�
 
    - 添加别名，方便调用
    ```bash
-   echo "alias ask='python3 $(pwd)/scripts/ai.py'" >> ~/.bashrc
+   echo "alias ai='python3 $(pwd)/scripts/ai.py'" >> ~/.bashrc
    source ~/.bashrc
    ```
 
