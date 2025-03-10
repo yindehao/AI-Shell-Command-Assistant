@@ -119,7 +119,7 @@ ai -e "top -l 1 | grep PhysMem"
 ### 查看版本信息
 运行以下命令查看工具的版本号：
 ```bash
-python scripts/ai.py -v
+ai -v
 ```
 
 ## 项目结构
@@ -153,7 +153,7 @@ ai-shell-command-assistant/
 
 ## 许可证
 
-本项目采用 [MIT License](LICENSE) 进行许可。
+本项目采用 [MIT License](LICENSE.txt) 进行许可。
 
 ---
 
