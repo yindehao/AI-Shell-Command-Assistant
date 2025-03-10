@@ -16,8 +16,8 @@ AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自�
 
 1. 克隆项目到本地：
    ```bash
-   git clone https://github.com/your-repo/ai-shell-command-assistant.git
-   cd ai-shell-command-assistant
+   git clone https://github.com/yindehao/AI-Shell-Command-Assistant.git
+   cd AI-Shell-Command-Assistant
    ```
 
 2. 安装依赖：
