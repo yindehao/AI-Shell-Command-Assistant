@@ -49,7 +49,6 @@ explain_prompt = """
 2. 解释时，请包括命令的基本语法、主要参数及其作用。
 3. 如果适用，可以简要说明该命令在实际操作中的应用场景。
 4. 确保解释内容简洁明了，避免不必要的技术细节，除非这些细节对于理解命令至关重要。
-5. 请以纯文本格式输出，而不是Markdown格式。
 
 指令内容: ${command}
 """.lstrip()
@@ -147,7 +146,10 @@ def main():
 
     elif len(sys.argv) >= 3 and sys.argv[1] in ("-e", "--explain"):
         prompt = " ".join(sys.argv[2:])
-        call_llm(explain_prompt.replace("${command}", prompt), True)
+        result = call_llm(explain_prompt.replace("${command}", prompt), True)
+        for content in result:
+            print(content, end="", flush=True)
+        print()
         sys.exit(0)
     else:
         prompt = " ".join(sys.argv[1:])
