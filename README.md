@@ -47,16 +47,25 @@ AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自�
 
 3.2 Windows
 
-   - 配置环境变量，包括大模型的 API Key 和模型名称、API 地址
-   ```cmd
-   setx OPENAI_API_KEY "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-   setx OPENAI_API_BASE "https://api.openai.com/v1"
-   setx OPENAI_MODEL "deepseek-chat"
+   - 配置环境变量，包括大模型的 API Key 和模型名称、API 地址 。
+   - 打开PowerShell（not cmd）,输入以下命令
+   ```PowerShell
+
+# 设置环境变量
+$apiKey = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+$apiBase = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+$modelName = "deepseek-v3"
+
+# 设置用户环境变量（仅对当前用户生效）
+[Environment]::SetEnvironmentVariable("OPENAI_API_KEY", $apiKey, [EnvironmentVariableTarget]::User)
+[Environment]::SetEnvironmentVariable("OPENAI_API_BASE", $apiBase, [EnvironmentVariableTarget]::User)
+[Environment]::SetEnvironmentVariable("OPENAI_MODEL", $modelName, [EnvironmentVariableTarget]::User)
    ```
 
    - 添加别名，方便调用
    ```cmd
-   doskey ai=python3 $(pwd)/scripts/ai.py $*
+   # 设置别名
+   Set-Alias -Name ai -Value "python $PWD\scripts\ai.py"
    ```
 
 3.3 Linux
