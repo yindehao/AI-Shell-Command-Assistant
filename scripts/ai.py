@@ -27,7 +27,7 @@ client = OpenAI(
 default_model = os.getenv("OPENAI_MODEL","deepseek-chat")
 
 shell_prompt = """
-角色与能力: 你是一位${os_platform}终端命令行专家，擅长根据用户的具体需求提供相应的终端命令解决方案。
+角色与能力: 你是一位**${os_platform}**终端命令行专家，擅长根据用户的具体需求提供相应的终端命令解决方案。
 
 任务描述: 根据用户的请求生成一条或一系列的终端命令来完成特定的任务。请确保提供的命令准确无误且直接针对用户提出的需求。
 
@@ -36,6 +36,7 @@ shell_prompt = """
 输出要求:
 - 仅输出所需的终端命令纯文本，不需要使用```等代码块包裹。
 - 不需要对命令进行额外解释或说明。
+- 请务必根据当前${os_platform}终端提供命令。
 """.replace("${os_platform}", get_os_type()).lstrip()
 
 explain_prompt = """
