@@ -1,5 +1,3 @@
-
-
 # AI Shell Command Assistant
 
 AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自然语言提示（prompt）转换为 Shell 命令，或者解释给定的 shell 命令。
@@ -15,86 +13,92 @@ AI Shell Command Assistant 是一个基于 AI 的命令行工具，能够将自�
 ## 安装
 
 1. 克隆项目到本地：
+
    ```bash
    git clone https://github.com/yindehao/AI-Shell-Command-Assistant.git
    cd AI-Shell-Command-Assistant
    ```
-
 2. 安装依赖：
    确保你已安装 Python 3.8 或更高版本，然后运行：
+
    ```bash
    pip install -r requirements.txt
    ```
-   
 3. 配置调用大语言模型所需环境变量
-
 
 3.1 MacOS
 
-   - 配置环境变量，包括大模型的 API Key 和模型名称、API 地址
-   ```zsh
+- 配置环境变量，包括大模型的 API Key 和模型名称、API 地址
+
+```zsh
    vim ~/.zshrc
    export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-   export OPENAI_API_BASE="https://api.openai.com/v1"
+   export OPENAI_API_BASE="https://dashscope.aliyuncs.com/compatible-mode/v1"
    export OPENAI_MODEL="deepseek-chat"
-   ```
+```
 
-   - 添加别名，方便调用
-   ```zsh
+- 添加别名，方便调用
+
+```zsh
    echo "alias ai='python3 $(pwd)/scripts/ai.py'" >> ~/.zshrc
    source ~/.zshrc
-   ```
+```
 
 3.2 Windows
 
-   - 配置环境变量，包括大模型的 API Key 和模型名称、API 地址 。
-   - 打开PowerShell（not cmd）,输入以下命令
-   ```PowerShell
+- 配置环境变量，包括大模型的 API Key 和模型名称、API 地址 。
+- 打开PowerShell（not cmd）,输入以下命令
+
+```PowerShell
 
 # 设置环境变量
 $apiKey = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $apiBase = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-$modelName = "deepseek-v3"
+$modelName = "deepseek-chat"
 
 # 设置用户环境变量（仅对当前用户生效）
 [Environment]::SetEnvironmentVariable("OPENAI_API_KEY", $apiKey, [EnvironmentVariableTarget]::User)
 [Environment]::SetEnvironmentVariable("OPENAI_API_BASE", $apiBase, [EnvironmentVariableTarget]::User)
 [Environment]::SetEnvironmentVariable("OPENAI_MODEL", $modelName, [EnvironmentVariableTarget]::User)
-   ```
+```
 
-   - 添加别名，方便调用
-   ```cmd
+- 添加别名，方便调用
+
+```cmd
    # 设置别名
    Set-Alias -Name ai -Value "python $PWD\scripts\ai.py"
-   ```
+```
 
 3.3 Linux
 
-   - 配置环境变量，包括大模型的 API Key 和模型名称、API 地址
-   ```bash
+- 配置环境变量，包括大模型的 API Key 和模型名称、API 地址
+
+```bash
    vim ~/.bashrc
    export OPENAI_API_KEY="sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-   export OPENAI_API_BASE="https://api.openai.com/v1"
+   export OPENAI_API_BASE="https://dashscope.aliyuncs.com/compatible-mode/v1"
    export OPENAI_MODEL="deepseek-chat"
-   ```
+```
 
-   - 添加别名，方便调用
-   ```bash
+- 添加别名，方便调用
+
+```bash
    echo "alias ai='python3 $(pwd)/scripts/ai.py'" >> ~/.bashrc
    source ~/.bashrc
-   ```
-
-
+```
 
 ## 使用方法
 
 ### 查看帮助信息
+
 运行以下命令查看工具的使用说明：
+
 ```bash
 ai -h
 ```
 
 输出示例：
+
 ```
 usage: ai [-h] [-e] [-v] [prompt ...]
 
@@ -110,23 +114,31 @@ optional arguments:
 ```
 
 ### 生成命令
+
 输入自然语言提示，生成对应的 zsh 命令：
+
 ```bash
 ai "查看当前运行的 Python 程序"
 ```
+
 输出示例：
+
 ```bash
 ps aux | grep python
 ```
 
 ### 解释命令
+
 使用 `-e` 或 `--explain` 参数解释给定的 shell 命令：
+
 ```bash
 ai -e "top -l 1 | grep PhysMem"
 ```
 
 ### 查看版本信息
+
 运行以下命令查看工具的版本号：
+
 ```bash
 ai -v
 ```
